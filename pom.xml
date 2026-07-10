@@ -109,6 +109,43 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            
+            <!-- 
+                JaCoCo Plugin - Code Coverage
+                ============================================================
+                JaCoCo (Java Code Coverage) measures how much of your code
+                is actually executed during tests.
+                
+                After running tests, it generates a report showing:
+                - Which lines were executed (green)
+                - Which lines were missed (red)
+                - Overall coverage percentage
+                
+                To generate the report, run: ./mvnw.ps1 test
+                Then open: target/site/jacoco/index.html
+                ============================================================
+            -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <!-- Step 1: Prepare the JaCoCo agent (instruments the code) -->
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- Step 2: Generate the coverage report after tests run -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
