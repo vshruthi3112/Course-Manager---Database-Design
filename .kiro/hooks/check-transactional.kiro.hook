@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Check @Transactional Usage",
+  "description": "When a service file is edited, remind to check that methods modifying data have proper @Transactional annotations",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/service/*.java"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A service file was edited. Check that any methods that write/modify database data have @Transactional annotation. If a read-only method has @Transactional, suggest adding readOnly=true for optimization. Explain WHY transactions are needed for each case."
+  }
+}

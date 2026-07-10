@@ -1,0 +1,18 @@
+# Compiled class files
+target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.class
+
+# Maven wrapper (if used)
+.mvn/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files (never commit passwords!)
+*.env

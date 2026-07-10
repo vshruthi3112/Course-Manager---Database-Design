@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ============================================================
+    pom.xml - Maven Project Configuration
+    ============================================================
+    
+    Think of this file like package.json in a Node.js project.
+    It defines:
+    - Project metadata (name, version, etc.)
+    - Dependencies (like npm packages)
+    - Build configuration
+    
+    Maven downloads all dependencies automatically, similar to "npm install"
+    ============================================================
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- 
+        Parent POM: Spring Boot Starter Parent
+        This gives us sensible defaults for Spring Boot projects
+        (like auto-configured dependency versions)
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/>
+    </parent>
+    
+    <!-- Project coordinates (like name + version in package.json) -->
+    <groupId>com.example</groupId>
+    <artifactId>course-manager</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>course-manager</name>
+    <description>Week 3 - Database Design: JPA, Entity Relationships, and Transactions</description>
+    
+    <!-- Java version we're using -->
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+    
+    <dependencies>
+        <!-- 
+            Spring Boot Starter Web
+            - Gives us REST controllers, embedded Tomcat server
+            - Like Express.js in Node world
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <!-- 
+            Spring Boot Starter Data JPA
+            - THE key dependency for this week!
+            - Includes Hibernate (the JPA implementation)
+            - Gives us repositories, entity management, transactions
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <!-- 
+            MySQL Connector
+            - The JDBC driver that lets Java talk to MySQL
+            - Like the mysql2 npm package in Node.js
+        -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <!-- 
+            Spring Boot Starter Validation
+            - Lets us validate entity fields (e.g., @NotBlank, @Size)
+            - Catches bad data before it hits the database
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        
+        <!-- 
+            Spring Boot Starter Test (only used during testing)
+            - Includes JUnit 5, Mockito, etc.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- 
+                Spring Boot Maven Plugin
+                - Packages the app as an executable JAR
+                - Like "npm run build" creating a production bundle
+            -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

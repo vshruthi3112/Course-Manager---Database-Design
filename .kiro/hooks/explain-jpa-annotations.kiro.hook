@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Explain JPA Annotations",
+  "description": "When an entity file is edited, remind the agent to explain any JPA annotations used in the change and how they affect the database schema",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/entity/*.java"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The user just edited a JPA entity file. Briefly explain any JPA annotations in the edited section and what SQL/database behavior they produce. Keep it educational and concise since this is a learning project."
+  }
+}
