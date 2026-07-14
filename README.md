@@ -1,8 +1,6 @@
 # Week 3 – Database Design: JPA, Entity Relationships & Transactions & Unit testing
 
-A Spring Boot learning project for frontend developers transitioning to full-stack.
-
-## What You'll Learn
+## Concepts covered
 
 | Concept | What It Means | Frontend Equivalent |
 |---------|---------------|-------------------|
@@ -218,7 +216,7 @@ Example: Deleting a Course also deletes all its Lessons.
 
 ## Week 4 – Testing: JUnit, Mockito & Service Layer Testing
 
-### What You'll Learn
+### Concepts covered
 
 | Concept | What It Is | Analogy |
 |---------|-----------|---------|
