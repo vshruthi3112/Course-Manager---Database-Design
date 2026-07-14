@@ -19,6 +19,7 @@ public class CourseService {
     private final StudentRepository studentRepository;
     private final LessonRepository lessonRepository;
 
+    // Constructor dependency injection
     public CourseService(CourseRepository courseRepository,
                          StudentRepository studentRepository,
                          LessonRepository lessonRepository) {

@@ -84,7 +84,7 @@ src/main/java/com/example/coursemanager/
 │ id (PK)     │──┐    ├─────────────────┤    ┌──│ id (PK)      │
 │ title       │  │    │ course_id (FK)──│────┘  │ name         │
 │ description │  │    │ student_id (FK)─│───────│ email        │
-│ created_at  │  │    └─────────────────┘       └──────────────┘
+│             │  │    └─────────────────┘       └──────────────┘
 └─────────────┘  │
                  │    ┌──────────────┐
                  │    │    LESSON    │
@@ -155,6 +155,37 @@ curl -X POST http://localhost:8080/api/courses/1/enroll/1
 # Search courses
 curl "http://localhost:8080/api/courses/search?keyword=spring"
 ```
+
+## How a Request Flows Through the App (Step-by-Step)
+
+```
+1. You send: GET http://localhost:8080/api/courses/1
+
+2. Spring routes it to:
+   CourseController.getCourseById(@PathVariable Long id)
+   (id = 1, extracted from the URL)
+
+3. Controller calls:
+   courseService.getCourseById(1)
+
+4. Service calls:
+   courseRepository.findById(1)
+
+5. Repository generates SQL:
+   SELECT * FROM courses WHERE id = 1
+
+6. MySQL returns the row
+
+7. Hibernate converts the row → Course Java object
+
+8. Spring/Jackson converts the Course object → JSON
+
+9. Response sent back:
+   HTTP 200 OK
+   {"id":1, "title":"Java Basics", "description":"Learn Java", "lessons":[...], "enrolledStudents":[...]}
+```
+
+---
 
 ## Key Concepts to Understand
 
