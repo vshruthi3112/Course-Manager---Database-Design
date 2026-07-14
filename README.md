@@ -1,4 +1,4 @@
-# Week 3 – Database Design: JPA, Entity Relationships & Transactions
+# Week 3 – Database Design: JPA, Entity Relationships & Transactions & Unit testing
 
 A Spring Boot learning project for frontend developers transitioning to full-stack.
 
